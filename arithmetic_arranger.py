@@ -5,6 +5,11 @@ def arithmetic_arranger(problems):
   #Loop through list of problems
   i=0
   while i < len(problems):
+    #check if any alphas exist in the string, if so, raise exception
+    alphas = problems[i].isalpha()
+    if alphas == True:
+      raise Exception("ERROR: Numbers must only contain digits.")
+    
     #search for the addition symbol
     operandLoc = problems[i].find("+")
     if operandLoc > 0:
@@ -25,6 +30,11 @@ def arithmetic_arranger(problems):
     lengthOne = len(numberOne)
     lengthTwo = len(numberTwo)
 
+    #if either number has more than 4 digits, raise exception
+    if lengthOne > 4:
+    if lengthTwo > 4:
+      raise Exception("ERROR: Numbers cannot be more than 4 digits.")
+      
     #there's definitely a better way to do this
     #find which number is longer in order to format vertically with spaces
     if lengthOne > lengthTwo:
